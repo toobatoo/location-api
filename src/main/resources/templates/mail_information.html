@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<style type="text/css">
+.header {
+	background-color: #d4543b;
+	color: white;
+	width: 80vw;
+	height: 80px;
+	margin: 0 auto;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.header>.txt {
+	font-size: 15px;
+}
+
+.body {
+	background-color: #d4543b;
+	color: white;
+	width: 80vw;
+	margin-top: 10px;
+	margin: 0 auto;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.no-decoration {
+	color: white;
+	text-decoration: none;
+}
+
+.font-13 {
+	font-size: 13px;
+}
+.strong{
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Location studio</h1>
+	</div>
+
+	<div class="body">
+		<h1>
+			Bonjour <span th:text="${civilite +' '+nom}"></span>
+		</h1>
+		<p class="font-13">
+			Votre demande de réservation à partir du <span
+				th:text="${listDates[0]}"></span>
+		</p>
+		<table>
+			<th:block th:each="date,iter : ${listDates}">
+				<tr>
+					<td th:text="${'- ' + listDates[iter.index]}"></td>
+				</tr>
+			</th:block>
+			<tr>
+				<td class="font-13 strong">Montant <span th:text="${price}"></span> euros</td>
+			</tr>
+		</table>
+		<br><br>
+
+		<p>Je vous remercie de votre demande de réservation, elle sera
+			effective dès réception de votre règlement.</p>
+			<br><br>
+		<p>
+			Bien cordialement,<br><br>Sébastien Chappert
+		</p>
+		<br>
+		<br>
+		<p>
+			<a href="" class="no-decoration">07.60.03.76.72</a>
+		</p>
+		<p>
+			<a
+				href="mailto:sebastien@hotmail.fr?subject=Location studio&body=Bonjour,"
+				class="no-decoration">sebastien.chappert@hotmail.fr</a>
+		</p>
+
+	</div>
+
+</body>
+</html>

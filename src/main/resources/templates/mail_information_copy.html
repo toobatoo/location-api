@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<style type="text/css">
+.header {
+	background-color: #d4543b;
+	color: white;
+	width: 80vw;
+	height: 80px;
+	margin: 0 auto;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.header>.txt {
+	font-size: 15px;
+}
+
+.body {
+	background-color: #d4543b;
+	color: white;
+	width: 80vw;
+	margin-top: 10px;
+	margin: 0 auto;
+	border-radius: 5px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-left: 10px;
+}
+
+.no-decoration {
+	color: white;
+	text-decoration: none;
+}
+
+.font-13 {
+	font-size: 13px;
+}
+.strong{
+font-weight: bold;
+}
+.no-decoration {
+	color: white;
+	text-decoration: none;
+}
+</style>
+</head>
+<body>
+	<div class="header">
+		<h1>Location studio</h1>
+	</div>
+
+	<div class="body">
+		<h1>
+			Reçu de <span th:text="${civilite +' '+nom}"></span>
+		</h1>
+		<h3>Mail: <a class="no-decoration" th:href="'mailto:' + ${mail}" th:text="${mail}"></a></h3>
+		<p class="font-13">
+			Demande de réservation à partir du <span
+				th:text="${listDates[0]}"></span>
+		</p>
+		<table>
+			<th:block th:each="date,iter : ${listDates}">
+				<tr>
+					<td th:text="${'- ' + listDates[iter.index]}"></td>
+				</tr>
+			</th:block>
+			<tr>
+				<td class="font-13 strong">Montant <span th:text="${price}"></span> euros</td>
+			</tr>
+		</table>
+	</div>
+
+</body>
+</html>
