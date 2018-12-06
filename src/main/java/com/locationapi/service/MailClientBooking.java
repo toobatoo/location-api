@@ -44,7 +44,7 @@ public class MailClientBooking {
 				MimeMessageHelper messageHelperToGuest = new MimeMessageHelper(mimeMessage);
 				messageHelperToGuest.setFrom("sebastien.chappert@hotmail.fr", "Beach's Cosy Home");
 				messageHelperToGuest.setTo( "sebastien.chappert@hotmail.fr" );
-				messageHelperToGuest.setSubject("Location studio, demande de réservation.");
+				messageHelperToGuest.setSubject("Location studio, demande de réservation!");
 
 
 				String content = this.mailContentBuilder.buildCopyForBooking( formMapper.getCivilite(), formMapper.getName(), formMapper.getMail(), listDates, price);
