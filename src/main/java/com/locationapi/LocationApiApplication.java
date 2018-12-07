@@ -2,11 +2,18 @@ package com.locationapi;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-public class LocationApiApplication {
+public class LocationApiApplication extends SpringBootServletInitializer  {
 
 	public static void main(String[] args) {
 		SpringApplication.run(LocationApiApplication.class, args);
 	}
+	
+	@Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(LocationApiApplication.class);
+    }
 }
